@@ -23,8 +23,8 @@ Project Full Stack E-Commerce
     - [index.js](./front-end/src/index.js)
     - [reportWebVital.js](./front-end/src/reportWebVital.js)
     - [setupTests.js](./front-end/src/setupTests.js)
-  - [package-lock.json](./package-lock.json)
-  - [package.json](./package.json)
+  - [package-lock.json](./front-end/src/package-lock.json)
+  - [package.json](./front-end/src/package.json)
 - [README.md](./README.md)
 - [.gitignore](./gitignore)
 
@@ -34,6 +34,26 @@ Project Full Stack E-Commerce
 - react-icons
 - bootstrap
 - sass
+- react-router-dom
+
+```
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+for more detail look at index.js
+```
+
+- react-router-bootstrap
+
+```
+This one use for change a into link for bootstrap class
+<LinkContainer>
+```
+
+##### Command Terminal
 
 ```
  npm install *Dependencies*
