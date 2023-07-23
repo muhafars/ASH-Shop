@@ -4,8 +4,8 @@ import Product from "../components/Product";
 const HomeScreen = () => {
   return (
     <>
-      <h1>Product</h1>
       <Row>
+        <h2>Latest Product</h2>
         {products.map(product => (
           <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
             <Product product={product} />

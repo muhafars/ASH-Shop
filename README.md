@@ -13,6 +13,7 @@ Project Full Stack E-Commerce
       - [Header.jsx](./front-end/src/components/Header.jsx)
       - [Footer.jsx](./front-end/src/components/Footer.jsx)
       - [Product.jsx](./front-end/src/components/Product.jsx)
+      - [Rating.jsx](./front-end/src/components/Rating.jsx)
     - [sample](./front-end/src/sample)
       - [product.js](./front-end/src/product.js)
       - [user.js](./front-end/src/user.js)
