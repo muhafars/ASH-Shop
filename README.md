@@ -32,6 +32,7 @@ Project Full Stack E-Commerce
     - [setupTests.js](./frontend/src/setupTests.js)
   - [package-lock.json](./frontend/src/package-lock.json)
   - [package.json](./frontend/src/package.json)
+- [node_modules](./node_modules)
 - [.gitignore](./gitignore)
 - [package-lock.json](./package-lock.json)
 - [package.json](./package.json)

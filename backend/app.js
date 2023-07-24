@@ -21,9 +21,11 @@ app.get("/", async function (req, res, next) {
 const view = async function (req, res, next) {
   const id = req.params.id;
   try {
+    let product;
     if (id) {
-      const product = products.find(index => index._id === id);
-      res.json(product);
+      product = products.find(product => product._id === id);
+    } else {
+      product = products;
     }
     res.json(product);
   } catch (err) {
@@ -33,10 +35,12 @@ const view = async function (req, res, next) {
         message: err.message,
         fields: err.errors,
       });
+    } else {
+      next(err);
     }
-    next(err);
   }
 };
+
 app.get("/api/products", view);
 app.get("/api/products/:id", view);
-app.listen(port, () => console.log(`Server running on http:localhost:${port}`));
+app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
