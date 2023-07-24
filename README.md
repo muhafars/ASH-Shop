@@ -4,6 +4,11 @@ Project Full Stack E-Commerce
 
 ## Structured Projects ASH Shop
 
+- [backend](./backend)
+  - [data](./backend/data)
+    - [product.js](./backend/product.js)
+    - [user.js](./backend/user.js)
+  - [app.js](./backend/app.js)
 - [front-end](./front-end)
   - [node_modules](./front-end/node_modules)
   - [public](./front-end/public)
@@ -27,10 +32,14 @@ Project Full Stack E-Commerce
     - [setupTests.js](./front-end/src/setupTests.js)
   - [package-lock.json](./front-end/src/package-lock.json)
   - [package.json](./front-end/src/package.json)
-- [README.md](./README.md)
 - [.gitignore](./gitignore)
+- [package-lock.json](./package-lock.json)
+- [package.json](./package.json)
+- [README.md](./README.md)
 
 ## Dependencies
+
+### For Front End
 
 - react-bootstrap
 - react-icons
@@ -55,7 +64,15 @@ This one use for change a into link for bootstrap class
 <LinkContainer>
 ```
 
-##### Command Terminal
+### For Backend
+
+- expressjs
+
+```
+library of node js
+```
+
+### Command Terminal
 
 ```
  npm install *Dependencies*
