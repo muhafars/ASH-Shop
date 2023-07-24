@@ -19,6 +19,7 @@ Project Full Stack E-Commerce
       - [user.js](./front-end/src/user.js)
     - [screen](./front-end/src/screen)
       - [HomeScreen.jsx](./front-end/HomeScreend.jsx)
+      - [ProductScreen.jsx](./front-end/ProductScreend.jsx)
     - [app.js](./front-end/src/app.js)
     - [app.scss](./front-end/src/app.scss)
     - [index.js](./front-end/src/index.js)
