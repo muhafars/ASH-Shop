@@ -1,8 +1,8 @@
 import express from "express";
-import product from "./data/products.js";
+import dotenv from "dotenv";
 import products from "./data/products.js";
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.get("/", async function (req, res, next) {
   try {
