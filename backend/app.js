@@ -1,8 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
+dotenv.config();
+import db from "./database/index.js";
 import products from "./data/products.js";
+const port = process.env.PORT ? process.env.PORT : 3001;
+db();
 const app = express();
-const port = process.env.PORT || 3001;
 
 app.get("/", async function (req, res, next) {
   try {

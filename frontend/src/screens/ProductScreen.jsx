@@ -1,12 +1,25 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem } from "react-bootstrap";
 import Rating from "../components/Rating";
-import products from "../sample/products";
+import axios from "axios";
+
 const ProductScreen = () => {
+  const [product, setProduct] = useState([]);
   const { id: productId } = useParams();
-  const product = products.find(p => p._id === productId);
-  console.log(product);
+  useEffect(() => {
+    const fetchProducts = async function () {
+      const { data } = await axios.get(`/api/products/${productId}`);
+      setProduct(data);
+    };
+    fetchProducts();
+  }, [productId]);
+
+  const price = parseInt(product.price)
+    .toFixed(2)
+    .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+
   return (
     <>
       <Link className="btn btn-primary my-3" to="/">
@@ -24,7 +37,10 @@ const ProductScreen = () => {
             <ListGroupItem>
               <Rating value={product.rating} text={`${product.numReviews} Reviews`} />
             </ListGroupItem>
-            <ListGroupItem>Price: {product.price}</ListGroupItem>
+            <ListGroupItem>
+              Price:
+              {price}
+            </ListGroupItem>
             <ListGroupItem>Description: {product.description}</ListGroupItem>
           </ListGroup>
         </Col>
@@ -35,7 +51,7 @@ const ProductScreen = () => {
                 <Row>
                   <Col>Price:</Col>
                   <Col>
-                    <strong>Rp.{product.price}</strong>
+                    <strong>Rp.{price}</strong>
                   </Col>
                 </Row>
               </ListGroupItem>

@@ -5,9 +5,17 @@ Project Full Stack E-Commerce
 ## Structured Projects ASH Shop
 
 - [backend](./backend)
+  - [config](./backend/config)
+    - [index.js](./backend/config/index.js)
   - [data](./backend/data)
-    - [product.js](./backend/product.js)
-    - [user.js](./backend/user.js)
+    - [product.js](./backend/data/product.js)
+    - [user.js](./backend/data/user.js)
+  - [database](./backend/database)
+    - [index.js](./backend/database/index.js)
+  - [model](./backend/model)
+    - [productModel.js](./backend/model/productModel.js)
+    - [userModel.js](./backend/model/userModel.js)
+    - [orderModel.js](./backend/model/orderModel.js)
   - [app.js](./backend/app.js)
 - [frontend](./frontend)
   - [node_modules](./frontend/node_modules)
@@ -77,6 +85,12 @@ library of node js
 
 ```
 libraty use for setup environment variable
+```
+
+- mongoose
+
+```
+mongoose as library at node js to connect to mongo db
 ```
 
 ### Command Terminal
