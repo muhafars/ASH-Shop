@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem } from "react-bootstrap";
-import Rating from "../components/Rating";
 // import axios from "axios";
-import { useGetProductDetailsQuery, useGetProductsQuery } from "../slices/productsApiSlice";
+import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
+import Rating from "../components/Rating";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 
 const ProductScreen = () => {
   // const [product, setProduct] = useState([]);
-  const { id: productId } = useParams();
   // useEffect(() => {
   //   const fetchProducts = async function () {
   //     const { data } = await axios.get(`/api/products/${productId}`);
@@ -16,12 +17,13 @@ const ProductScreen = () => {
   //   };
   //   fetchProducts();
   // }, [productId]);
-  const { data: product, isLoading, isError } = useGetProductDetailsQuery(productId);
 
   // const price = parseInt(product.price)
   //   .toFixed(2)
   //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   // product.price = price;
+  const { id: productId } = useParams();
+  const { data: product, isLoading, isError } = useGetProductDetailsQuery(productId);
 
   return (
     <>
@@ -29,9 +31,9 @@ const ProductScreen = () => {
         Go Back
       </Link>
       {isLoading ? (
-        <p>loading...</p>
+        <Loader />
       ) : isError ? (
-        <div>{isError?.data?.message || isError.error}</div>
+        <Message variant="danger">{isError?.data?.message || isError.error} </Message>
       ) : (
         <Row>
           <Col md={5}>
