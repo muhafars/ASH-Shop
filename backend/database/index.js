@@ -7,7 +7,7 @@ const db = async function () {
       `mongodb://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}?authSource=admin`
     );
     console.log(`MongoDB connected: ${conn.connection.host}`);
-  } catch (er) {
+  } catch (err) {
     console.log(`Error: ${err.message}`);
     process.exit(1);
   }

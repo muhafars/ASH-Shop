@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-
-const reviewSchema = mongoose.Schema(
+const { model, Schema } = mongoose;
+const reviewSchema = Schema(
   {
     name: {
       type: String,
@@ -16,7 +16,7 @@ const reviewSchema = mongoose.Schema(
       maxLength: [9999, "Length Character Name Maximum 9999"],
     },
     user: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       required: true,
       ref: "User",
     },
@@ -29,7 +29,7 @@ const reviewSchema = mongoose.Schema(
 const productSchema = mongoose.Schema(
   {
     user: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       required: true,
       ref: "User",
     },
@@ -86,6 +86,6 @@ const productSchema = mongoose.Schema(
   }
 );
 
-const Product = mongoose.model("Product", productSchema);
+const Product = model("Product", productSchema);
 
 export default Product;
