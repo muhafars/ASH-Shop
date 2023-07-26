@@ -1,18 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+// styling
 import "./assets/styles/bootstrap.custom.scss";
+import "./index.scss";
+import "./assets/styles/index.scss";
+// routing
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
 } from "react-router-dom";
-import "./index.scss";
-import "./assets/styles/index.scss";
+import { Provider } from "react-redux";
+import store from "./store";
+// components
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
+import reportWebVitals from "./reportWebVitals";
 
 //adding new implement of routing react
 const router = createBrowserRouter(
@@ -26,7 +31,9 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 
