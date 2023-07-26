@@ -28,28 +28,37 @@ Project Full Stack E-Commerce
   - [seeder.js](./backend/seeder.js)
 
 - [frontend](./frontend)
+
   - [node_modules](./frontend/node_modules)
   - [public](./frontend/public)
     - [images](./frontend/public/images)
   - [src](./frontend/src)
+
     - [components](./frontend/src/components)
       - [Header.jsx](./frontend/src/components/Header.jsx)
       - [Footer.jsx](./frontend/src/components/Footer.jsx)
       - [Product.jsx](./frontend/src/components/Product.jsx)
       - [Rating.jsx](./frontend/src/components/Rating.jsx)
     - [sample](./frontend/src/sample)
-      - [product.js](./frontend/src/product.js)
-      - [user.js](./frontend/src/user.js)
+      - [product.js](./frontend/src/sample/product.js)
+      - [user.js](./frontend/src/sample/user.js)
     - [screen](./frontend/src/screen)
-      - [HomeScreen.jsx](./frontend/HomeScreend.jsx)
-      - [ProductScreen.jsx](./frontend/ProductScreend.jsx)
+      - [HomeScreen.jsx](./frontend/screen/HomeScreen.jsx)
+      - [ProductScreen.jsx](./frontend/screen/ProductScreen.jsx)
+    - [slices](./frontend/src/slices)
+      - [apiSlice.js](./frontend/slices/apiSlice.js)
+      - [productApiSlice.js](./frontend/slices/productApiSlice.js)
     - [app.js](./frontend/src/app.js)
-    - [app.scss](./frontend/src/app.scss)
+    - [constant.js](./frontend/src/constant.js)
     - [index.js](./frontend/src/index.js)
+    - [index.scss](./frontend/src/index.scss)
     - [reportWebVital.js](./frontend/src/reportWebVital.js)
     - [setupTests.js](./frontend/src/setupTests.js)
+    - [store.js](./frontend/src/store.js)
+
   - [package-lock.json](./frontend/src/package-lock.json)
   - [package.json](./frontend/src/package.json)
+
 - [node_modules](./node_modules)
 - [.gitignore](./gitignore)
 - [package-lock.json](./package-lock.json)
@@ -82,6 +91,22 @@ for more detail look at index.js
 This one use for change a into link for bootstrap class
 <LinkContainer>
 ```
+
+- @reduxjs/toolkit
+
+```
+redux use slicer reducer
+```
+
+detail documentation : [Redux/Toolkit ](https://redux-toolkit.js.org/)
+
+- react-redux
+
+```
+library use for redux
+```
+
+detail documentation : [React Redux ](https://react-redux.js.org/)
 
 ### For Backend
 
