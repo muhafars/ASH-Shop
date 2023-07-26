@@ -49,6 +49,7 @@ Project Full Stack E-Commerce
       - [ProductScreen.jsx](./frontend/screen/ProductScreen.jsx)
     - [slices](./frontend/src/slices)
       - [apiSlice.js](./frontend/slices/apiSlice.js)
+      - [cartSlice.js](./frontend/slices/cartSlice.js)
       - [productApiSlice.js](./frontend/slices/productApiSlice.js)
     - [app.js](./frontend/src/app.js)
     - [constant.js](./frontend/src/constant.js)
