@@ -1,12 +1,13 @@
-// import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem } from "react-bootstrap";
+import { useState } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Form } from "react-bootstrap";
 // import axios from "axios";
 import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
 import Rating from "../components/Rating";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import { addToCart } from "../slices/cartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductScreen = () => {
   // const [product, setProduct] = useState([]);
@@ -17,13 +18,20 @@ const ProductScreen = () => {
   //   };
   //   fetchProducts();
   // }, [productId]);
-
-  // const price = parseInt(product.price)
-  //   .toFixed(2)
-  //   .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  // product.price = price;
   const { id: productId } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [qty, setQty] = useState(1);
+
   const { data: product, isLoading, isError } = useGetProductDetailsQuery(productId);
+  const addToCartHandler = function () {
+    dispatch(addToCart({ ...product, qty }));
+    navigate("/cart");
+  };
+  const addDecimals = num => {
+    return (Math.round(num * 100) / 100).toFixed(2);
+  };
+  // console.log([...Array(product.countInStock).keys()]); //check at console component react extension
 
   return (
     <>
@@ -49,9 +57,7 @@ const ProductScreen = () => {
               </ListGroupItem>
               <ListGroupItem>
                 Price:
-                {parseInt(product.price)
-                  .toFixed(2)
-                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
+                {addDecimals(product.price)}
               </ListGroupItem>
               <ListGroupItem>Description: {product.description}</ListGroupItem>
             </ListGroup>
@@ -63,7 +69,7 @@ const ProductScreen = () => {
                   <Row>
                     <Col>Price:</Col>
                     <Col>
-                      <strong>Rp.{parseInt(product.price)}</strong>
+                      <strong>Rp.{addDecimals(product.price)}</strong>
                     </Col>
                   </Row>
                 </ListGroupItem>
@@ -75,8 +81,33 @@ const ProductScreen = () => {
                     </Col>
                   </Row>
                 </ListGroupItem>
+                {product.countInStock > 0 && (
+                  <ListGroupItem>
+                    <Row>
+                      <Col>Qty</Col>
+                      <Col>
+                        <Form.Control
+                          as="select"
+                          value={qty}
+                          onChange={e => setQty(Number(e.target.value))}
+                        >
+                          {[...Array(product.countInStock).keys()].map(x => (
+                            <option key={x + 1} value={x + 1}>
+                              {x + 1}
+                            </option>
+                          ))}
+                        </Form.Control>
+                      </Col>
+                    </Row>
+                  </ListGroupItem>
+                )}
                 <ListGroupItem>
-                  <Button className="btn-block" type="button" disabled={product.countInStock === 0}>
+                  <Button
+                    className="btn-block"
+                    type="button"
+                    disabled={product.countInStock === 0}
+                    onClick={addToCartHandler}
+                  >
                     Add to Cart
                   </Button>
                 </ListGroupItem>
