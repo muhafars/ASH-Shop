@@ -8,6 +8,8 @@ Project Full Stack E-Commerce
 
   - [config](./backend/config)
     - [index.js](./backend/config/index.js)
+  - [controller](./backend/controller)
+    - [productController.js](./backend/controller/productController.js)
   - [data](./backend/data)
     - [product.js](./backend/data/product.js)
     - [user.js](./backend/data/user.js)
