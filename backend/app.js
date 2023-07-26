@@ -2,10 +2,11 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import db from "./database/index.js";
-import products from "./data/products.js";
 const port = process.env.PORT ? process.env.PORT : 3001;
 db();
 const app = express();
+
+import productRoutes from "./routes/productRouter.js";
 
 app.get("/", async function (req, res, next) {
   try {
@@ -21,29 +22,6 @@ app.get("/", async function (req, res, next) {
   }
 });
 
-const view = async function (req, res, next) {
-  const id = req.params.id;
-  try {
-    let product;
-    if (id) {
-      product = products.find(product => product._id === id);
-    } else {
-      product = products;
-    }
-    res.json(product);
-  } catch (err) {
-    if (err.name === "ValidationError") {
-      return res.status(400).json({
-        error: 1,
-        message: err.message,
-        fields: err.errors,
-      });
-    } else {
-      next(err);
-    }
-  }
-};
+app.use("/api", productRoutes);
 
-app.get("/api/products", view);
-app.get("/api/products/:id", view);
 app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
