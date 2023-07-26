@@ -15,6 +15,7 @@ Project Full Stack E-Commerce
     - [index.js](./backend/database/index.js)
   - [middleware](./backend/middleware)
     - [asyncHandler.js](./backend/middleware/asyncHandler.js)
+    - [errorMiddleware.js](./backend/middleware/errorMiddleware.js)
   - [model](./backend/model)
     - [productModel.js](./backend/model/productModel.js)
     - [userModel.js](./backend/model/userModel.js)
