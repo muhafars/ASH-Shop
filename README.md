@@ -51,6 +51,8 @@ Project Full Stack E-Commerce
       - [apiSlice.js](./frontend/slices/apiSlice.js)
       - [cartSlice.js](./frontend/slices/cartSlice.js)
       - [productApiSlice.js](./frontend/slices/productApiSlice.js)
+    - [utils](./frontend/src/utils)
+      - [cartUtils.js](./frontend/utils/cartUtils.js)
     - [app.js](./frontend/src/app.js)
     - [constant.js](./frontend/src/constant.js)
     - [index.js](./frontend/src/index.js)
