@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 // styling
 import "./assets/styles/bootstrap.custom.scss";
-import "./index.scss";
 import "./assets/styles/index.scss";
 // routing
 import {

@@ -10,14 +10,6 @@ import { addToCart } from "../slices/cartSlice";
 import { useDispatch } from "react-redux";
 
 const ProductScreen = () => {
-  // const [product, setProduct] = useState([]);
-  // useEffect(() => {
-  //   const fetchProducts = async function () {
-  //     const { data } = await axios.get(`/api/products/${productId}`);
-  //     setProduct(data);
-  //   };
-  //   fetchProducts();
-  // }, [productId]);
   const { id: productId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
