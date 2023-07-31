@@ -8,8 +8,9 @@ Project Full Stack E-Commerce
 
   - [config](./backend/config)
     - [index.js](./backend/config/index.js)
-  - [controller](./backend/controller)
-    - [productController.js](./backend/controller/productController.js)
+  - [controllers](./backend/controllers)
+    - [productController.js](./backend/controllers/productController.js)
+    - [userController.js](./backend/controllers/userController.js)
   - [data](./backend/data)
     - [product.js](./backend/data/product.js)
     - [user.js](./backend/data/user.js)
@@ -24,6 +25,7 @@ Project Full Stack E-Commerce
     - [orderModel.js](./backend/model/orderModel.js)
   - [routes](./backend/routes)
     - [productRouter.js](./backend/routes/productRouter.js)
+    - [userRouter.js](./backend/routes/userRouter.js)
   - [app.js](./backend/app.js)
   - [seeder.js](./backend/seeder.js)
 

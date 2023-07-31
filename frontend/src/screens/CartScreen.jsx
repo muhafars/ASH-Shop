@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { addToCart } from "../slices/cartSlice.js";
+import { addToCart, removeFromCart } from "../slices/cartSlice.js";
 import { Button, Card, Col, Form, Image, ListGroup, ListGroupItem, Row } from "react-bootstrap";
 import { FaTrashAlt } from "react-icons/fa";
 import Message from "../components/Message";
@@ -12,6 +12,12 @@ const CartScreen = () => {
   const navigate = useNavigate();
   const addToCartHandler = async function (product, qty) {
     dispatch(addToCart({ ...product, qty }));
+  };
+  const removeFromCartHandler = async function (id) {
+    dispatch(removeFromCart(id));
+  };
+  const checkoutHandler = () => {
+    navigate("/login?redirect=/shipping");
   };
   return (
     <Row>
@@ -53,7 +59,11 @@ const CartScreen = () => {
                     </Form.Control>
                   </Col>
                   <Col md={1}>
-                    <Button type="button" variant="light">
+                    <Button
+                      type="button"
+                      variant="light"
+                      onClick={() => removeFromCartHandler(item._id)}
+                    >
                       <FaTrashAlt />
                     </Button>
                   </Col>
@@ -76,7 +86,12 @@ const CartScreen = () => {
               </p>
             </ListGroupItem>
             <ListGroupItem>
-              <Button variant="success" className="btn btn-block" disabled={cartItems.length === 0}>
+              <Button
+                variant="success"
+                className="btn btn-block"
+                disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
+              >
                 Let's Checkout
               </Button>
             </ListGroupItem>

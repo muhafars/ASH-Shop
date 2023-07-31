@@ -8,22 +8,13 @@ db();
 const app = express();
 
 import productRoutes from "./routes/productRouter.js";
+import userRoutes from "./routes/userRouter.js";
+// body parser middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/", async function (req, res, next) {
-  try {
-    res.send("Hello from server");
-  } catch (err) {
-    if (err && err.name === "ValidationError") {
-      res.json({
-        error: 1,
-        message: err.message,
-        fields: err.error,
-      });
-    }
-  }
-});
-
-app.use("/api", productRoutes);
+//route
+app.use("/api", productRoutes, userRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
