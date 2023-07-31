@@ -142,6 +142,12 @@ mongoose as library at node js to connect to mongo db
 bcrypt as hash crypt
 ```
 
+- jsonwebtoken
+
+```
+jwt for auth tokenization secure
+```
+
 - colors
 
 ```
