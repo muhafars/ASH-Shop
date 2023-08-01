@@ -1,6 +1,5 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import User from "../model/userModel.js";
-import jwt from "jsonwebtoken";
 import generateToken from "../utils/generateToken.js";
 
 /**
@@ -14,7 +13,7 @@ const authUser = asyncHandler(async function (req, res) {
 
   if (user && (await user.matchPassword(password))) {
     generateToken(res, user._id);
-    res.json({
+    res.status(200).json({
       _id: user._id,
       name: user.name,
       email: user.email,
@@ -77,7 +76,19 @@ const logoutUser = asyncHandler(async function (req, res) {
  * @access  Private
  */
 const getUserProfile = asyncHandler(async function (req, res) {
-  res.send("get user profile");
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found!");
+  }
 });
 
 /**
@@ -86,7 +97,28 @@ const getUserProfile = asyncHandler(async function (req, res) {
  * @access Private
  */
 const updateUserProfile = asyncHandler(async function (req, res) {
-  res.send("update profile");
+  const { name, email, password } = req.body;
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    user.name = name || user.name;
+    user.email = email || user.email;
+
+    if (password) {
+      user.password = password;
+    }
+    const updateUser = await user.save();
+
+    res.status(200).json({
+      _id: updateUser._id,
+      name: updateUser.name,
+      email: updateUser.email,
+      isAdmin: updateUser.isAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found!");
+  }
 });
 
 /**
