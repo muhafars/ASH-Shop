@@ -11,11 +11,15 @@ import {
   getUserById,
   updateUser,
 } from "../controllers/userController.js";
-
-router.route("/users").post(registerUser).get(getUsers);
-router.route("/users/:id").delete(deleteUser).get(getUserById).put(updateUser);
+import { protect, admin } from "../middleware/authMiddleware.js";
+router.route("/users").post(registerUser).get(protect, admin, getUsers);
 router.post("/users/login", authUser);
-router.route("/users/profile").get(getUserProfile).put(updateUserProfile);
 router.post("/users/logout", logoutUser);
+router.route("/users/profile").get(protect, getUserProfile).put(protect, updateUserProfile);
+router
+  .route("/users/:id")
+  .delete(protect, admin, deleteUser)
+  .get(protect, admin, getUserById)
+  .put(protect, admin, updateUser);
 
 export default router;

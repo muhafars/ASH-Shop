@@ -28,7 +28,6 @@ const authUser = asyncHandler(async function (req, res) {
       name: user.name,
       email: user.email,
       isAdmin: user.isAdmin,
-      // token: user.getSignedJwtToken(),
     });
   } else {
     res.status(401);
