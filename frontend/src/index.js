@@ -18,6 +18,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import reportWebVitals from "./reportWebVitals";
 import CartScreen from "./screens/CartScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 //adding new implement of routing react
 const router = createBrowserRouter(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route index={true} path="/" element={<HomeScreen />} />
       <Route path="/product/:id" element={<ProductScreen />} />
       <Route path="/cart" element={<CartScreen />} />
+      <Route path="/login" element={<LoginScreen />} />
     </Route>
   )
 );

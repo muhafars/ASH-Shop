@@ -39,6 +39,7 @@ Project Full Stack E-Commerce
 
     - [components](./frontend/src/components)
       - [Footer.jsx](./frontend/src/components/Footer.jsx)
+      - [FormContainer.jsx](./frontend/src/components/FormContainer.jsx)
       - [Header.jsx](./frontend/src/components/Header.jsx)
       - [Loader.jsx](./frontend/src/components/Loader.jsx)
       - [Message.jsx](./frontend/src/components/Header.jsx)
@@ -50,6 +51,7 @@ Project Full Stack E-Commerce
     - [screen](./frontend/src/screen)
       - [CartScreen.jsx](./frontend/screen/CartScreen.jsx)
       - [HomeScreen.jsx](./frontend/screen/HomeScreen.jsx)
+      - [LoginScreen.jsx](./frontend/screen/LoginScreen.jsx)
       - [ProductScreen.jsx](./frontend/screen/ProductScreen.jsx)
     - [slices](./frontend/src/slices)
       - [apiSlice.js](./frontend/slices/apiSlice.js)
